@@ -17,6 +17,7 @@ pipeline {
                     echo "Docker version on agent:\n\n${dockerVersion}"
 
                     sh "docker info"
-      }
-   }
+                 }
+          }
+     }
 }
