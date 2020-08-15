@@ -14,16 +14,5 @@ pipeline {
                     }
              }
           }
-      stage('ShellOutFromSharedLib'){
-            }
-            steps {
-                script {
-                    def dockerVersion = shellOut('docker --version')
-                    echo "Docker version on agent:\n\n${dockerVersion}"
-
-                    sh "docker info"
-                 }
-          }
-     }
-  }
-}
+       }
+    }
