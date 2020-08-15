@@ -7,9 +7,14 @@ pipeline {
             echo "$GIT_BRANCH"
          }
       }
+      stage('Docker Build') {
+             steps {
+                script {
+                     sh "docker images -a"
+                    }
+             }
+          }
       stage('ShellOutFromSharedLib'){
-            agent {
-                label 'docker-dood'
             }
             steps {
                 script {
