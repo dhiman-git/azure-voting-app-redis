@@ -7,10 +7,16 @@ pipeline {
             echo "$GIT_BRANCH"
          }
       }
-      stage('Docker Build') {
-         steps {
-            sh "docker images -a"
-         }
+      stage('ShellOutFromSharedLib'){
+            agent {
+                label 'docker-dood'
+            }
+            steps {
+                script {
+                    def dockerVersion = shellOut('docker --version')
+                    echo "Docker version on agent:\n\n${dockerVersion}"
+
+                    sh "docker info"
       }
    }
 }
